@@ -392,6 +392,14 @@ class PlgEditorTinymce extends JPlugin
 			$toolbar4_add[] = 'paste';
 		}
 
+		// Paste
+		$cleanUp = $this->params->get('paste_clean_up', 1);
+		
+		if ($cleanUp && !$paste)
+		{
+			$plugins[]	= 'paste';
+		}
+		
 		$toolbar4_add[] = '|';
 
 		// Visualchars
@@ -599,6 +607,7 @@ class PlgEditorTinymce extends JPlugin
 						entity_encoding : \"$entity_encoding\",
 						$forcenewline
 						$smallButtons
+						plugins: \"paste\",
 						// URL
 						relative_urls : $relative_urls,
 						remove_script_host : false,
@@ -635,7 +644,7 @@ class PlgEditorTinymce extends JPlugin
 					$smallButtons
 					invalid_elements : \"$invalid_elements\",
 					// Plugins
-					plugins : \"table link image code charmap autolink lists importcss\",
+					plugins : \"table link image code charmap autolink lists importcss paste\",
 					// Toolbar
 					toolbar1: \"$toolbar1\",
 					toolbar2: \"$toolbar2\",
