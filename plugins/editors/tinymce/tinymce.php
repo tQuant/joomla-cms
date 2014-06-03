@@ -392,6 +392,14 @@ class PlgEditorTinymce extends JPlugin
 			$toolbar4_add[] = 'paste';
 		}
 
+		// Paste
+		$cleanUp = $this->params->get('paste_clean_up', 1);
+		
+		if ($cleanUp && !$paste)
+		{
+			$plugins[]	= 'paste';
+		}
+		
 		$toolbar4_add[] = '|';
 
 		// Visualchars
